@@ -1,0 +1,46 @@
+﻿@model POOI_T1_PEÑA.Models.Empleado
+
+@{
+    ViewBag.Title = "Agregar";
+}
+
+<h2>Agregar Empleado</h2>
+
+@if (ViewBag.Mensaje != null)
+{
+    <p style="font-weight:bold; color:blue;">@ViewBag.Mensaje</p>
+}
+
+@using (Html.BeginForm())
+{
+    <p>ID Empleado:</p>
+    @Html.TextBoxFor(m => m.idEmpleado)
+
+    <p>Nombre y Apellido:</p>
+    @Html.TextBoxFor(m => m.nomapeEmpleado)
+
+    <p>Categoría:</p>
+    @Html.DropDownListFor(m => m.categoriaEmpleado, new List<SelectListItem>
+    {
+        new SelectListItem { Text = "E1", Value = "E1" },
+        new SelectListItem { Text = "E2", Value = "E2" },
+        new SelectListItem { Text = "E3", Value = "E3" }
+    }, "-- Seleccione --")
+
+    <p>Número de Hijos:</p>
+    @Html.TextBoxFor(m => m.nHijos)
+
+    <p>Tipo de Contrato:</p>
+    @Html.DropDownListFor(m => m.tipoContrato, new List<SelectListItem>
+    {
+        new SelectListItem { Text = "Indefinido", Value = "Indefinido" },
+        new SelectListItem { Text = "Contratado", Value = "Contratado" }
+    }, "-- Seleccione --")
+
+    <br />
+    <br />
+    <input type="submit" value="Guardar" />
+}
+
+<br />
+@Html.ActionLink("Ver lista de Empleados", "Index")

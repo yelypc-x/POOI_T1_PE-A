@@ -1,0 +1,39 @@
+﻿@model List<POOI_T1_PEÑA.Models.Empleado>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Lista de Empleados</h2>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Categoría</th>
+        <th>N° Hijos</th>
+        <th>Tipo Contrato</th>
+        <th>Sueldo Básico</th>
+        <th>Escolaridad</th>
+        <th>Bonificación</th>
+        <th>Monto a Pagar</th>
+    </tr>
+
+    @foreach (var emp in Model)
+    {
+        <tr>
+            <td>@emp.idEmpleado</td>
+            <td>@emp.nomapeEmpleado</td>
+            <td>@emp.categoriaEmpleado</td>
+            <td>@emp.nHijos</td>
+            <td>@emp.tipoContrato</td>
+            <td>@emp.SueldoBasico()</td>
+            <td>@emp.Escolaridad()</td>
+            <td>@emp.Bonificacion()</td>
+            <td>@emp.MontoAPagar()</td>
+        </tr>
+    }
+</table>
+
+<br />
+@Html.ActionLink("Agregar nuevo Empleado", "Agregar")
