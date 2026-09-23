@@ -47,11 +47,11 @@ namespace POOI_T1_PEÑA.Models
         }
 
 
-        public decimal Bonificacion()
+        public virtual decimal Bonificacion()
         {
             decimal montBonificacion;
 
-            if (tipoContrato == "indefinido")
+            if (tipoContrato == "Indefinido")
             {
                 montBonificacion = SueldoBasico() * 0.15m;
             }
@@ -70,7 +70,7 @@ namespace POOI_T1_PEÑA.Models
         }
 
 
-        public decimal MontoAPagar()
+        public virtual decimal MontoAPagar()
         {
            decimal montoPago;
            montoPago = SueldoBasico() + Escolaridad() + Bonificacion();

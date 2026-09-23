@@ -1,0 +1,61 @@
+﻿@model POOI_T1_PEÑA.Models.Administrativo
+
+@{
+    ViewBag.Title = "RegistrarAdministrativo";
+}
+
+<h2>Registrar Administrativo</h2>
+
+@using (Html.BeginForm())
+{
+    <p>ID Empleado:</p>
+    @Html.TextBoxFor(m => m.idEmpleado)
+
+    <p>Nombre y Apellido:</p>
+    @Html.TextBoxFor(m => m.nomapeEmpleado)
+
+    <p>Categoría:</p>
+    @Html.DropDownListFor(m => m.categoriaEmpleado, new List<SelectListItem>
+{
+        new SelectListItem { Text = "E1", Value = "E1" },
+        new SelectListItem { Text = "E2", Value = "E2" },
+        new SelectListItem { Text = "E3", Value = "E3" }
+    }, "-- Seleccione --")
+
+    <p>Número de Hijos:</p>
+    @Html.TextBoxFor(m => m.nHijos)
+
+    <p>Tipo de Contrato:</p>
+    @Html.DropDownListFor(m => m.tipoContrato, new List<SelectListItem>
+{
+        new SelectListItem { Text = "Indefinido", Value = "Indefinido" },
+        new SelectListItem { Text = "Contratado", Value = "Contratado" }
+    }, "-- Seleccione --")
+
+    <p>Año de Ingreso:</p>
+    @Html.TextBoxFor(m => m.anioIngreso)
+
+    <p>¿Tiene PostGrado?</p>
+    @Html.CheckBoxFor(m => m.postGrado)
+
+    <br />
+    <br />
+    <input type="submit" value="Registrar" />
+}
+
+<h2>Resultado del Registro</h2>
+
+<p>Sueldo Básico:</p>
+@Html.TextBox("sueldoBasico", Model.SueldoBasico())
+
+<p>Escolaridad:</p>
+@Html.TextBox("escolaridad", Model.Escolaridad())
+
+<p>Bonificación:</p>
+@Html.TextBox("bonificacion", Model.Bonificacion())
+
+<p>Incentivo:</p>
+@Html.TextBox("incentivo", Model.Incentivo())
+
+<p>Monto a Pagar:</p>
+@Html.TextBox("montoAPagar", Model.MontoAPagar())

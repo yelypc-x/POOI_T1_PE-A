@@ -27,6 +27,16 @@ namespace POOI_T1_PEÑA.Controllers
             return View(emp);
         }
 
+        public ActionResult RegistrarAdministrativo()
+        {
+            Administrativo admin = new Administrativo();
+            return View(admin);
+        }
 
+        [HttpPost]
+        public ActionResult RegistrarAdministrativo(Administrativo admin)
+        {
+            return View(admin);
+        }
     }
 }
