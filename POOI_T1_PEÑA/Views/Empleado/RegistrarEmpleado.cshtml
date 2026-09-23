@@ -1,0 +1,67 @@
+﻿@model POOI_T1_PEÑA.Models.Empleado
+
+@{
+    ViewBag.Title = "RegistrarEmpleado";
+}
+
+<h2>Registrar Empleado</h2>
+
+@using (Html.BeginForm())
+{
+    <p>ID Empleado:</p>
+    @Html.TextBoxFor(m => m.idEmpleado)
+
+    <p>Nombre y Apellido:</p>
+    @Html.TextBoxFor(m => m.nomapeEmpleado)
+
+    <p>Categoría:</p>
+    @Html.DropDownListFor(m => m.categoriaEmpleado, new List<SelectListItem>
+    {
+        new SelectListItem { Text = "E1", Value = "E1" },
+        new SelectListItem { Text = "E2", Value = "E2" },
+        new SelectListItem { Text = "E3", Value = "E3" }
+    }, "-- Seleccione --")
+
+    <p>Número de Hijos:</p>
+    @Html.TextBoxFor(m => m.nHijos)
+
+    <p>Tipo de Contrato:</p>
+    @Html.DropDownListFor(m => m.tipoContrato, new List<SelectListItem>
+    {
+        new SelectListItem { Text = "Indefinido", Value = "Indefinido" },
+        new SelectListItem { Text = "Contratado", Value = "Contratado" }
+    }, "-- Seleccione --")
+
+    <br />
+    <br />
+    <input type="submit" value="Registrar" />
+}
+
+<h2>Resultado del Registro</h2>
+
+<p>ID Empleado:</p>
+@Html.TextBox("idEmpleado", Model.idEmpleado)
+
+<p>Nombre y Apellido:</p>
+@Html.TextBox("nomapeEmpleado", Model.nomapeEmpleado)
+
+<p>Categoría:</p>
+@Html.TextBox("categoriaEmpleado", Model.categoriaEmpleado)
+
+<p>Número de Hijos:</p>
+@Html.TextBox("nHijos", Model.nHijos)
+
+<p>Tipo de Contrato:</p>
+@Html.TextBox("tipoContrato", Model.tipoContrato)
+
+<p>Sueldo Básico:</p>
+@Html.TextBox("sueldoBasico", Model.SueldoBasico())
+
+<p>Escolaridad:</p>
+@Html.TextBox("escolaridad", Model.Escolaridad())
+
+<p>Bonificación:</p>
+@Html.TextBox("bonificacion", Model.Bonificacion())
+
+<p>Monto a Pagar:</p>
+@Html.TextBox("montoAPagar", Model.MontoAPagar())
